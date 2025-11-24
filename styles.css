@@ -1,0 +1,126 @@
+/* Бело-серый минимализм */
+:root{
+    --bg: #ffffff;
+    --bg-alt: #f3f4f6; /* светло-серый */
+    --fg: #111827;     /* почти черный */
+    --muted: #6b7280;  /* серый текст */
+    --accent: #9ca3af; /* серый акцент */
+    --line: #e5e7eb;   /* линии */
+}
+
+*{ box-sizing: border-box; }
+
+body{
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    color: var(--fg);
+    background: var(--bg);
+}
+
+.app{
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.app__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.app__title{ margin: 0; font-size: 24px; font-weight: 700; }
+
+.app__controls{ display: flex; gap: 8px; }
+
+.btn{
+    background: var(--bg-alt);
+    color: var(--fg);
+    border: 1px solid var(--line);
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background .15s ease, transform .05s ease;
+}
+.btn:hover{ background: #eaecf0; }
+.btn:active{ transform: translateY(1px); }
+
+.app__main{
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.main__grid-and-clues{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
+}
+
+.crossword{
+    display: inline-grid;
+    gap: 2px;
+    background: var(--line);
+    padding: 2px;
+    border-radius: 8px;
+}
+
+.cell{
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    border-radius: 6px;
+    position: relative;
+}
+
+.cell--block{ background: var(--bg-alt); }
+
+.cell__num{
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    font-size: 10px;
+    color: var(--muted);
+    user-select: none;
+}
+
+.cell input{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: var(--fg);
+}
+
+.cell.correct input{ color: #059669; }
+.cell.error input{ color: #b91c1c; }
+
+.status{
+    margin-top: 14px;
+    color: var(--muted);
+}
+
+.muted{ color: var(--muted); }
+
+.clues{ align-self: start; }
+.clues__title{ margin: 0 0 6px 0; font-size: 16px; }
+.clues__list{ margin: 0 0 16px 18px; padding: 0; }
+.clues__list li{ margin: 4px 0; color: var(--fg); }
+.clues__answer{ color: var(--muted); font-style: italic; }
+
+@media (max-width: 560px){
+    .main__grid-and-clues{ grid-template-columns: 1fr; }
+    .cell{ width: 32px; height: 32px; }
+}
+
+

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Генератор кроссвордов</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <header class="app__header">
+            <h1 class="app__title">Генератор кроссвордов</h1>
+            <div class="app__controls">
+                <button id="btn-new" class="btn">Поменять</button>
+            </div>
+        </header>
+
+        <main class="app__main">
+            <div class="main__grid-and-clues">
+                <div>
+                    <div id="crossword" class="crossword" aria-live="polite"></div>
+                    <div id="status" class="status" role="status"></div>
+                </div>
+                <aside class="clues" aria-label="Подсказки">
+                    <div class="clues__group">
+                        <h2 class="clues__title">По горизонтали</h2>
+                        <ol id="clues-across" class="clues__list"></ol>
+                    </div>
+                    <div class="clues__group">
+                        <h2 class="clues__title">По вертикали</h2>
+                        <ol id="clues-down" class="clues__list"></ol>
+                    </div>
+                </aside>
+            </div>
+        </main>
+
+        <footer class="app__footer">
+            <p class="muted">Белый/серый стиль · Автогенерация после разгадывания</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Инициализация после загрузки DOM
+        window.addEventListener('DOMContentLoaded', () => {
+            window.CrosswordApp.init();
+        });
+    </script>
+    
+    <!--
+        Приложение работает полностью на клиенте: генерация сетки, ввод ответов,
+        кнопка "Поменять" для новой сетки и автосмена после полного решения.
+    -->
+</body>
+<style>
+    /* Небольшой инлайн-фикс для системных шрифтов на Windows */
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0; }
+    /* Основная стилизация вынесена в styles.css */
+</style>
+</html>
+
+
